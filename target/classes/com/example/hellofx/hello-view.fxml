@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="16.0"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.hellofx.HelloController">
+
+    <padding>
+        <Insets bottom="40.0" left="48.0" right="48.0" top="40.0"/>
+    </padding>
+
+    <Label text="現在地の天気" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <Separator/>
+
+    <Label fx:id="locationLabel" text="--"
+           style="-fx-font-size: 16px; -fx-text-fill: #555555;"/>
+
+    <Label fx:id="conditionLabel" text="--"
+           style="-fx-font-size: 20px;"/>
+
+    <Label fx:id="temperatureLabel" text="--°C"
+           style="-fx-font-size: 56px; -fx-font-weight: bold; -fx-text-fill: #336699;"/>
+
+    <Label fx:id="windLabel" text="風速: -- km/h"
+           style="-fx-font-size: 14px; -fx-text-fill: #666666;"/>
+
+    <Separator/>
+
+    <Button fx:id="refreshButton" text="更新" onAction="#onRefreshButtonClick"
+            style="-fx-font-size: 14px;" defaultButton="true"/>
+
+    <Label fx:id="statusLabel" text=""
+           style="-fx-font-size: 12px; -fx-text-fill: #cc4444;"/>
+
+</VBox>
