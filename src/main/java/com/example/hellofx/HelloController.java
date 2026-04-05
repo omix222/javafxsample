@@ -7,10 +7,17 @@ import javafx.scene.control.Label;
 
 public class HelloController {
 
+    // 今日
     @FXML private Label locationLabel;
     @FXML private Label conditionLabel;
     @FXML private Label temperatureLabel;
     @FXML private Label windLabel;
+
+    // 明日
+    @FXML private Label tomorrowConditionLabel;
+    @FXML private Label tomorrowTempLabel;
+    @FXML private Label tomorrowWindLabel;
+
     @FXML private Label statusLabel;
     @FXML private Button refreshButton;
 
@@ -38,11 +45,17 @@ public class HelloController {
         };
 
         task.setOnSucceeded(e -> {
-            WeatherService.WeatherInfo weather = task.getValue();
-            locationLabel.setText(weather.location());
-            conditionLabel.setText(weather.condition());
-            temperatureLabel.setText(String.format("%.1f°C", weather.temperature()));
-            windLabel.setText(String.format("風速: %.1f km/h", weather.windSpeed()));
+            WeatherService.WeatherInfo w = task.getValue();
+            locationLabel.setText(w.location());
+            conditionLabel.setText(w.condition());
+            temperatureLabel.setText(String.format("%.1f°C", w.temperature()));
+            windLabel.setText(String.format("風速: %.1f km/h", w.windSpeed()));
+
+            WeatherService.TomorrowForecast t = w.tomorrow();
+            tomorrowConditionLabel.setText(t.condition());
+            tomorrowTempLabel.setText(String.format("最高 %.1f°C / 最低 %.1f°C", t.tempMax(), t.tempMin()));
+            tomorrowWindLabel.setText(String.format("最大風速: %.1f km/h", t.windSpeedMax()));
+
             statusLabel.setText("");
             setLoading(false);
         });
@@ -65,6 +78,9 @@ public class HelloController {
             conditionLabel.setText("--");
             temperatureLabel.setText("--°C");
             windLabel.setText("風速: -- km/h");
+            tomorrowConditionLabel.setText("--");
+            tomorrowTempLabel.setText("最高 --°C / 最低 --°C");
+            tomorrowWindLabel.setText("最大風速: -- km/h");
         }
     }
 }

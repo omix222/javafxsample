@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 400, 420);
+        Scene scene = new Scene(fxmlLoader.load(), 400, 520);
         stage.setTitle("現在地の天気");
         stage.setScene(scene);
         stage.show();

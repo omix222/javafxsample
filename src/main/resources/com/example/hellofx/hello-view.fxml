@@ -6,30 +6,38 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="16.0"
+<VBox alignment="CENTER" spacing="14.0"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.hellofx.HelloController">
 
     <padding>
-        <Insets bottom="40.0" left="48.0" right="48.0" top="40.0"/>
+        <Insets bottom="36.0" left="48.0" right="48.0" top="36.0"/>
     </padding>
 
-    <Label text="現在地の天気" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+    <!-- 現在地 -->
+    <Label text="現在地の天気" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <Label fx:id="locationLabel" text="--"
+           style="-fx-font-size: 14px; -fx-text-fill: #555555;"/>
+
+    <!-- 今日 -->
+    <Label fx:id="conditionLabel" text="--"
+           style="-fx-font-size: 20px;"/>
+    <Label fx:id="temperatureLabel" text="--°C"
+           style="-fx-font-size: 52px; -fx-font-weight: bold; -fx-text-fill: #336699;"/>
+    <Label fx:id="windLabel" text="風速: -- km/h"
+           style="-fx-font-size: 13px; -fx-text-fill: #666666;"/>
 
     <Separator/>
 
-    <Label fx:id="locationLabel" text="--"
-           style="-fx-font-size: 16px; -fx-text-fill: #555555;"/>
-
-    <Label fx:id="conditionLabel" text="--"
-           style="-fx-font-size: 20px;"/>
-
-    <Label fx:id="temperatureLabel" text="--°C"
-           style="-fx-font-size: 56px; -fx-font-weight: bold; -fx-text-fill: #336699;"/>
-
-    <Label fx:id="windLabel" text="風速: -- km/h"
-           style="-fx-font-size: 14px; -fx-text-fill: #666666;"/>
+    <!-- 明日 -->
+    <Label text="明日の予報" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <Label fx:id="tomorrowConditionLabel" text="--"
+           style="-fx-font-size: 18px;"/>
+    <Label fx:id="tomorrowTempLabel" text="最高 --°C / 最低 --°C"
+           style="-fx-font-size: 14px; -fx-text-fill: #336699;"/>
+    <Label fx:id="tomorrowWindLabel" text="最大風速: -- km/h"
+           style="-fx-font-size: 13px; -fx-text-fill: #666666;"/>
 
     <Separator/>
 
